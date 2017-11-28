@@ -230,31 +230,43 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 const CLS_ON = 'icon-on';
 const CLS_HALF = 'icon-half';
 const CLS_OFF = 'icon-off';
 /* harmony default export */ __webpack_exports__["a"] = ({
-	props: ['score', 'maxScore', 'size'],
+	props: ['score', 'maxScore', 'size', 'color'],
 	data() {
 		return {
-			myScore: this.score
+			myScore: this.score || 0,
+			fontSize: this.size || 1,
+			activeColor: this.color || '#f7ba2a'
 		};
 	},
+	model: {
+		prop: 'myRating',
+		event: 'rate'
+	},
 	computed: {
-
 		itemClasses() {
 			let result = [];
 			let score = Math.floor(this.myScore * 2) / 2;
 			let hasHalf = score % 1 !== 0;
 			let integer = Math.floor(score);
+			let maxScore = this.maxScore === undefined ? 5 : this.maxScore;
 			for (let i = 0; i < integer; i++) {
 				result.push(CLS_ON);
 			}
 			if (hasHalf) {
 				result.push(CLS_HALF);
 			}
-			while (result.length < Math.floor(this.maxScore)) {
+			while (result.length < Math.floor(maxScore)) {
 				result.push(CLS_OFF);
 			}
 			return result;
@@ -262,9 +274,18 @@ const CLS_OFF = 'icon-off';
 	},
 	methods: {
 		rate(val) {
-			console.log(val + 1);
 			this.myScore = val + 1;
+			this.$emit('rate', val + 1);
+		},
+
+		_initMyRating() {
+			let myRating = this.myScore > 1 ? this.myScore - 1 : 0;
+			this.rate(myRating);
 		}
+
+	},
+	mounted() {
+		this._initMyRating();
 	}
 });
 
@@ -296,7 +317,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 exports.i(__webpack_require__(6), "");
 
 // module
-exports.push([module.i, "\n.star-rating[data-v-658fee0b] {\n  display: inline-block;\n  width: auto;\n}\n.star-rating .star-item[data-v-658fee0b] {\n  vertical-align: top;\n  color: #f7ba2a;\n  margin-right: 5px;\n}\n.star-rating .star-item[data-v-658fee0b]:last-child {\n  margin-right: 0;\n}\n.star-rating .rating[data-v-658fee0b] {\n  font-size: 16px;\n}\n.star-rating .size-12[data-v-658fee0b] {\n  font-size: 12px;\n}\n.star-rating .size-18[data-v-658fee0b] {\n  font-size: 18px;\n}\n.star-rating .size-30[data-v-658fee0b] {\n  font-size: 30px;\n}\n", ""]);
+exports.push([module.i, "\n.star-rating[data-v-658fee0b] {\n  display: inline-block;\n  width: auto;\n}\n.star-rating .star-item[data-v-658fee0b] {\n  vertical-align: top;\n  margin-right: 5px;\n}\n.star-rating .star-item[data-v-658fee0b]:last-child {\n  margin-right: 0;\n}\n.star-rating .rating[data-v-658fee0b] {\n  font-size: 16px;\n}\n.star-rating .size-12[data-v-658fee0b] {\n  font-size: 12px;\n}\n.star-rating .size-18[data-v-658fee0b] {\n  font-size: 18px;\n}\n.star-rating .size-30[data-v-658fee0b] {\n  font-size: 30px;\n}\n", ""]);
 
 // exports
 
@@ -957,6 +978,7 @@ var render = function() {
         key: index,
         staticClass: "iconfont star-item",
         class: [item, "size-" + _vm.size],
+        style: { color: _vm.activeColor, fontSize: _vm.fontSize + "rem" },
         on: {
           click: function($event) {
             _vm.rate(index)
