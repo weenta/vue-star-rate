@@ -1,6 +1,6 @@
 {
   "name": "vue-star-rate",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "a vue star  rating component for mobile",
   "main": "dist/star-rating.js",
   "scripts": {
@@ -12,6 +12,10 @@
     "star",
     "rate"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weenta/vue-star-rate"
+  },
   "author": "weenta",
   "license": "MIT",
   "dependencies": {
@@ -31,6 +35,5 @@
     "webpack": "^2.7.0"
   },
   "devDependencies": {
-  },
-  "homepage": "https://github.com/weenta/vue-star-rate#readme"
+  }
 }
