@@ -55,7 +55,7 @@ export default {
 | -------- | ------------|--- |---------|
 |score|The initial rating|Number|0|
 |maxScore|The max score |Number|5|
-|size|The css fontSize of star, you should use **rem** unit|Number|1|
+|size|The fontSize of star, you should use **rem** unit|Number|1|
 |color|The color of star|String|#f7ba2a|
 |readOnly|whether Rate is read-only|Boolean|false|
 

@@ -10,14 +10,15 @@
 </head>
 <body>
 <div id="app">
-    <a href="javascript:;" @click='testToast'>点击弹出toast</a>
-    <br>
+    <span>myRating</span>
     <star-rating
         @rate='showScore'
+        :color='color'
+        :score='score'
     ></star-rating> 
+    <span>{{score}}</span>
 </div>
 <script>
- 
     new Vue({
         el: '#app',
         components:{
@@ -25,16 +26,14 @@
         },
         data(){
             return {
-                color:"red"
+                color:"blue",
+                score:1
             }
         },
         methods:{
-            testToast:function(){
-                console.log(this)
-                console.log('app')
-            },
             showScore(val){
                 console.log(val)
+                this.score=val
             }
         }
     })

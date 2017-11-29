@@ -1,4 +1,5 @@
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry:'./src/lib/index.js',
@@ -24,7 +25,7 @@ module.exports = {
                 exclude:/node_modules/,
                 options:{
                     loaders:{
-                        less:'style-loader!css-loader!less-loader'
+                        less:'style-loader!css-loader!postcss-loader!less-loader'
                     }
                 }
             },
@@ -43,5 +44,8 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new UglifyJsPlugin()
+    ]
 }
