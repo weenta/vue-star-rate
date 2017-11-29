@@ -14,7 +14,7 @@ const CLS_ON = 'icon-on';
 const CLS_HALF = 'icon-half';
 const CLS_OFF = 'icon-off';
 export default {
-	props:['score','maxScore','size','color'],
+	props:['score','maxScore','size','color','readOnly'],
 	data(){
 		return {
 			myScore: this.score || 0,
@@ -43,8 +43,10 @@ export default {
 	},
 	methods:{
 		rate(val){
-			this.myScore = val+1
-			this.$emit('rate', val+1)
+			if(!this.readOnly){
+				this.myScore = val+1
+				this.$emit('rate', val+1)
+			}
 		}
 	}
 };
