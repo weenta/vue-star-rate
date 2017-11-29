@@ -249,10 +249,6 @@ const CLS_OFF = 'icon-off';
 			activeColor: this.color || '#f7ba2a'
 		};
 	},
-	model: {
-		prop: 'myRating',
-		event: 'rate'
-	},
 	computed: {
 		itemClasses() {
 			let result = [];
@@ -276,16 +272,7 @@ const CLS_OFF = 'icon-off';
 		rate(val) {
 			this.myScore = val + 1;
 			this.$emit('rate', val + 1);
-		},
-
-		_initMyRating() {
-			let myRating = this.myScore > 1 ? this.myScore - 1 : 0;
-			this.rate(myRating);
 		}
-
-	},
-	mounted() {
-		this._initMyRating();
 	}
 });
 
@@ -317,7 +304,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 exports.i(__webpack_require__(6), "");
 
 // module
-exports.push([module.i, "\n.star-rating[data-v-658fee0b] {\n  display: inline-block;\n  width: auto;\n}\n.star-rating .star-item[data-v-658fee0b] {\n  vertical-align: top;\n  margin-right: 5px;\n}\n.star-rating .star-item[data-v-658fee0b]:last-child {\n  margin-right: 0;\n}\n.star-rating .rating[data-v-658fee0b] {\n  font-size: 16px;\n}\n.star-rating .size-12[data-v-658fee0b] {\n  font-size: 12px;\n}\n.star-rating .size-18[data-v-658fee0b] {\n  font-size: 18px;\n}\n.star-rating .size-30[data-v-658fee0b] {\n  font-size: 30px;\n}\n", ""]);
+exports.push([module.i, "\n.star-rating[data-v-658fee0b] {\n  display: inline-block;\n}\n.star-rating .star-item[data-v-658fee0b] {\n  vertical-align: top;\n  margin-right: 5px;\n}\n.star-rating .star-item[data-v-658fee0b]:last-child {\n  margin-right: 0;\n}\n", ""]);
 
 // exports
 
@@ -977,7 +964,7 @@ var render = function() {
       return _c("span", {
         key: index,
         staticClass: "iconfont star-item",
-        class: [item, "size-" + _vm.size],
+        class: [item],
         style: { color: _vm.activeColor, fontSize: _vm.fontSize + "rem" },
         on: {
           click: function($event) {

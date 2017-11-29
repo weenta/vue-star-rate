@@ -12,18 +12,29 @@
 <div id="app">
     <a href="javascript:;" @click='testToast'>点击弹出toast</a>
     <br>
-    <star-rating></star-rating> 
+    <star-rating
+        @rate='showScore'
+    ></star-rating> 
 </div>
 <script>
-    Vue.component('star-rating', {
-        template: starRating
-    })
+ 
     new Vue({
         el: '#app',
+        components:{
+            starRating: starRating.default
+        },
+        data(){
+            return {
+                color:"red"
+            }
+        },
         methods:{
             testToast:function(){
                 console.log(this)
                 console.log('app')
+            },
+            showScore(val){
+                console.log(val)
             }
         }
     })

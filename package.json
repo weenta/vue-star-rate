@@ -1,6 +1,6 @@
 {
   "name": "vue-star-rate",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "a vue star  rating component for mobile",
   "main": "dist/star-rating.js",
   "scripts": {

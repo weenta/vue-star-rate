@@ -2,7 +2,7 @@
     <div class="star-rating">
         <span class="iconfont star-item" 
 			v-for="(item,index) in itemClasses" 
-			:class="[item,'size-'+size]" 
+			:class="[item]" 
 			:style="{color: activeColor, fontSize: fontSize + 'rem' }"
 			:key='index' 
 			@click='rate(index)'
@@ -21,10 +21,6 @@ export default {
 			fontSize: this.size || 1,
 			activeColor: this.color || '#f7ba2a'
 		}
-	},
-	model: {
-		prop: 'myRating',
-		event: 'rate'
 	},
 	computed:{
 		itemClasses(){
@@ -49,16 +45,7 @@ export default {
 		rate(val){
 			this.myScore = val+1
 			this.$emit('rate', val+1)
-		},
-
-		_initMyRating(){
-			let myRating = this.myScore > 1 ? this.myScore - 1 : 0
-			this.rate(myRating)
 		}
-
-	},
-	mounted(){
-		this._initMyRating()
 	}
 };
 </script>
@@ -66,29 +53,13 @@ export default {
     @import './fonts/iconfont.css';
     .star-rating {
 	  display: inline-block;
-	  width:auto;
 	  
       .star-item {
 			vertical-align: top;
-			// color:#f7ba2a;
 			margin-right: 5px;
 			&:last-child {
 				margin-right: 0;
 			}
 		}
-		.rating {
-			font-size: 16px;
-		}
-		.size-12 {
-			font-size: 12px;
-		}
-		.size-18 {
-			font-size: 18px;
-		}
-		.size-30 {
-			font-size: 30px;
-		}
     }
 </style>
-
-
