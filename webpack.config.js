@@ -1,12 +1,12 @@
 const path = require('path')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry:'./src/lib/index.js',
     output:{
         filename:'star-rating.js',
         path:path.join(__dirname, '/dist'),
-        library: 'starRating',
+        library: 'VueStarRate',
         libraryTarget: 'umd'
     },
     module:{
@@ -14,10 +14,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader:'babel-loader',
-                exclude:/node_modules/,
-                query:{
-                    presets:['env']
-                }
+                exclude:/node_modules/
             },
             {
                 test:/\.vue$/,
@@ -46,6 +43,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new UglifyJsPlugin()
+        // new UglifyJsPlugin()
     ]
 }
