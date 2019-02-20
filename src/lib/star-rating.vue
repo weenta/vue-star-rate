@@ -1,13 +1,13 @@
 <template>
     <div class="star-rating">
-        <span class="iconfont star-item" 
-			v-for="(item,index) in itemClasses" 
-			:class="[item]" 
+        <span class="iconfont star-item"
+			v-for="(item,index) in itemClasses"
+			:class="[item]"
 			:style="{color: activeColor, fontSize: fontSize + 'rem' }"
-			:key='index' 
+			:key='index'
 			@click='rate(index)'
 		></span>
-    </div>  
+    </div>
 </template>
 <script>
 const CLS_ON = 'icon-on';
@@ -48,6 +48,11 @@ export default {
 				this.$emit('rate', val+1)
 			}
 		}
+	},
+	watch: {
+		score: function(value) {
+			this.myScore = value
+		}
 	}
 };
 </script>
@@ -55,7 +60,7 @@ export default {
     @import './fonts/iconfont.css';
     .star-rating {
 	  display: inline-block;
-	  
+
       .star-item {
 			vertical-align: top;
 			margin-right: 5px;
