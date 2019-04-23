@@ -1,12 +1,17 @@
 # A Vue2.x Star Rating Component for mobile
+
 a simple star rating component for morden mobile browsers
 
-## USEAGE
+## USAGE
+
 - Install
+
 ```bash
     npm i vue-star-rate
 ```
+
 - QuickStart
+
 ```js
 <template>
   <div class="hello">
@@ -48,23 +53,24 @@ export default {
 </script>
 ```
 
-## Docs     
-- Attribute     
+## Docs
 
-| Attribute| Description |Type| Default |
-| -------- | ------------|--- |---------|
-|score|The initial rating|Number|0|
-|maxScore|The max score |Number|5|
-|size|The fontSize of star, you should use **rem** unit|Number|1|
-|color|The color of star|String|#f7ba2a|
-|readOnly|whether Rate is read-only|Boolean|false|
+- Attribute
 
+| Attribute | Description                                       | Type    | Default |
+| --------- | ------------------------------------------------- | ------- | ------- |
+| score     | The initial rating                                | Number  | 0       |
+| maxScore  | The max score                                     | Number  | 5       |
+| size      | The fontSize of star, you should use **rem** unit | Number  | 1       |
+| color     | The color of star                                 | String  | #f7ba2a |
+| readOnly  | whether Rate is read-only                         | Boolean | false   |
 
-- Event     
+- Event
 
-|Event Name|Description|Parameters|
-|-----|-----------|----------|
-|rate|Triggers when you click the star to rate|value of your rating|
+| Event Name | Description                              | Parameters           |
+| ---------- | ---------------------------------------- | -------------------- |
+| rate       | Triggers when you click the star to rate | value of your rating |
 
 ## LICENSE
+
 MIT
